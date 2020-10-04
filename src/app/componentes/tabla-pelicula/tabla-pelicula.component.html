@@ -1,0 +1,19 @@
+<table>
+  <thead>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Portada</th>
+  </thead>
+  <tbody>
+      <tr *ngFor="let pelicula of listadoPeliculas">
+          <td style="width: 30px">{{pelicula.nombre}}</td>
+          <td style="width: 30px">{{pelicula.tipo}}</td>
+          <td style="width: 40px">
+              <img [src]="pelicula.foto" alt="" style="width: 50px; height: 50px">
+          </td>
+          <!--<td>
+              <button (click)="verPais(pais)">Detalles</button>
+          </td>-->
+      </tr>
+  </tbody>
+</table>
