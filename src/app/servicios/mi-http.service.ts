@@ -12,6 +12,7 @@ export class MiHttpService {
 
   respuestasAFL : AngularFireList<any>;
   respuestasObservable : Observable<any>;
+  id:number;
 
   constructor(public afAuth : AngularFireAuth, public afDB : AngularFireDatabase) { }
 
@@ -22,10 +23,17 @@ export class MiHttpService {
     return this.respuestasObservable;
   }
 
-  cargarPelicula(pelicula:Pelicula)
+  cargarPelicula(pelicula:Pelicula,id:string)
   {
     const listadoPeliculas = this.afDB.list("/Peliculas/");
-    listadoPeliculas.push(pelicula);
+    listadoPeliculas.set(id,pelicula);
+  }
+
+  ultimoIdPelicula()
+  {
+    this.respuestasAFL = this.afDB.list("/Peliculas",ref => ref.limitToLast(1));
+    this.respuestasObservable = this.respuestasAFL.valueChanges();
+    return this.respuestasObservable;
   }
 
   traerActores()
@@ -35,9 +43,16 @@ export class MiHttpService {
     return this.respuestasObservable;
   }
 
-  cargarActor(actor:Actor)
+  cargarActor(actor:Actor,id:string)
   {
     const resultadosAgilidad = this.afDB.list("/Actores/");
-    resultadosAgilidad.push(actor);
+    resultadosAgilidad.set(id,actor);
+  }
+
+  ultimoIdActor()
+  {
+    this.respuestasAFL = this.afDB.list("/Actores",ref => ref.limitToLast(1));
+    this.respuestasObservable = this.respuestasAFL.valueChanges();
+    return this.respuestasObservable;
   }
 }

@@ -1,19 +1,27 @@
-<table>
-  <thead>
-      <th>Nombre</th>
-      <th>Tipo</th>
-      <th>Portada</th>
-  </thead>
-  <tbody>
-      <tr *ngFor="let pelicula of listadoPeliculas">
-          <td style="width: 30px">{{pelicula.nombre}}</td>
-          <td style="width: 30px">{{pelicula.tipo}}</td>
-          <td style="width: 40px">
-              <img [src]="pelicula.foto" alt="" style="width: 50px; height: 50px">
-          </td>
-          <!--<td>
-              <button (click)="verPais(pais)">Detalles</button>
-          </td>-->
-      </tr>
-  </tbody>
-</table>
+<div class="card">
+    <p-table [value]="listadoPeliculas" [scrollable]="true" scrollHeight="100px">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Portada</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pelicula>
+            <tr>
+                <td>{{pelicula.nombre}}</td>
+                <td>{{pelicula.tipo}}
+                <select name="select" class="form-control" [(ngModel)]="pelicula.tipo" disabled>
+                    <option disabled selected value> -- Seleccione una opción -- </option>
+                    <option value="1">Terror</option> 
+                    <option value="2">Comedia</option>
+                    <option value="3">Drama</option>
+                    <option value="4">Otros</option>
+                </select></td>
+                <td>
+                    <img [src]="pelicula.foto" alt="" style="width: 50px; height: 50px">
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
