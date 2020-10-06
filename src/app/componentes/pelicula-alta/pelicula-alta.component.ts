@@ -12,6 +12,7 @@ export class PeliculaAltaComponent implements OnInit {
   nuevaPelicula:Pelicula;
   id:number;
   listaActores = [];
+  actoresSeleccionados:number[] = [];
 
   constructor(private miHttp:MiHttpService) { 
     this.nuevaPelicula = new Pelicula();
@@ -19,9 +20,17 @@ export class PeliculaAltaComponent implements OnInit {
 
   guardarPelicula()
   {
+    for (let i = 1; i <= this.listaActores.length; i++) {
+      console.log((<HTMLInputElement>document.getElementById("check"+i)).value);
+    }
     this.nuevaPelicula.id = this.id;
     this.miHttp.cargarPelicula(this.nuevaPelicula,this.id.toString());
-    window.location.reload();
+    //window.location.reload();
+  }
+
+  checkActor(id)
+  {
+    
   }
 
   ngOnInit(): void {
