@@ -32,14 +32,9 @@
   </head>
   <body class="bg-light">
     <div class="container">
-  <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h2>Checkout form</h2>
-    <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
-  </div>
 
     <div class="col-md-8 order-md-1">
-      <h4 class="mb-3">Película</h4>
+      <h4 class="mb-3">Actor</h4>
       <form class="needs-validation" novalidate>
         <div class="mb-3">
             <label for="firstName">Nombre</label>
@@ -52,12 +47,12 @@
         </div>
 
         <div class="mb-3">
-          <label for="email">Fecha de estreno:</label>
+          <label for="email">Fecha de nacimiento</label>
           <input [(ngModel)]="nuevoActor.fechaNacimiento" name="fecha" type="date" class="form-control">
         </div>
 
         <div class="mb-3">
-            <label for="username">Username</label>
+            <label for="username">Genero</label>
             <div class="input-group">
                 <select name="select" class="form-control" [(ngModel)]="nuevoActor.sexo">
                     <option disabled selected value> -- Seleccione una opción -- </option>
@@ -71,15 +66,6 @@
         <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="guardarActor()">Cargar película</button>
       </form>
     </div>
-
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">&copy; 2017-2020 Company Name</p>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Privacy</a></li>
-      <li class="list-inline-item"><a href="#">Terms</a></li>
-      <li class="list-inline-item"><a href="#">Support</a></li>
-    </ul>
-  </footer>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

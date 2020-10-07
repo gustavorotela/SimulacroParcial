@@ -5,4 +5,5 @@ export class Pelicula {
     fechaEstreno:Date;
     publico:number;
     foto:string;
+    actores:string[];
 }

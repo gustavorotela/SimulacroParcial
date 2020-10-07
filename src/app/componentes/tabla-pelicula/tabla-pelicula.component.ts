@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Pelicula } from 'src/app/clases/pelicula';
 
 @Component({
   selector: 'app-tabla-pelicula',
@@ -8,8 +9,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TablaPeliculaComponent implements OnInit {
 
   @Input() listadoPeliculas:any;
+  @Output() emitirPelicula: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
+
+  mostrarDetalle(pelicula:Pelicula)
+  {
+    console.log(pelicula);
+    this.emitirPelicula.emit(pelicula);
+  }
 
   ngOnInit(): void {
   }

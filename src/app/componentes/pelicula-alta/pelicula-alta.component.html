@@ -32,11 +32,6 @@
   </head>
   <body class="bg-light">
     <div class="container">
-  <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h2>Checkout form</h2>
-    <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
-  </div>
 
   <div class="row">
     <div class="col-md-4 order-md-2 mb-4">
@@ -47,20 +42,11 @@
         <div *ngFor="let actor of listaActores">
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
-              <h6 class="my-0"><input type="checkbox" (change)="checkActor(actor.id)"> {{actor.nombre}} {{actor.apellido}}</h6>
+              <h6 class="my-0"><input type="checkbox" (change)="checkActor(actor.nombre, actor.apellido)"> {{actor.nombre}} {{actor.apellido}}</h6>
             </div>
           </li>
         </div>
       </ul>
-
-      <form class="card p-2">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Promo code">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-secondary">Redeem</button>
-          </div>
-        </div>
-      </form>
     </div>
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Película</h4>
@@ -71,7 +57,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="username">Username</label>
+            <label for="username">Genero</label>
             <div class="input-group">
                 <select name="select" class="form-control" [(ngModel)]="nuevaPelicula.tipo">
                     <option disabled selected value> -- Seleccione una opción -- </option>
@@ -84,7 +70,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="email">Fecha de estreno:</label>
+          <label for="email">Fecha de estreno</label>
           <input [(ngModel)]="nuevaPelicula.fechaEstreno" name="fecha" type="date" class="form-control">
         </div>
 
@@ -97,15 +83,6 @@
       </form>
     </div>
   </div>
-
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">&copy; 2017-2020 Company Name</p>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Privacy</a></li>
-      <li class="list-inline-item"><a href="#">Terms</a></li>
-      <li class="list-inline-item"><a href="#">Support</a></li>
-    </ul>
-  </footer>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
