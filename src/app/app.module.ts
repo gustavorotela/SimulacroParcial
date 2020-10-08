@@ -21,6 +21,9 @@ import { VisualesModule } from './modulos/visuales/visuales.module';
 import { PeliculaModificarComponent } from './componentes/pelicula-modificar/pelicula-modificar.component';
 import { PeliculaEliminarComponent } from './componentes/pelicula-eliminar/pelicula-eliminar.component';
 import { MenuComponent } from './componentes/menu/menu.component';
+import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBwwDZtpRqLVuxTzuLnsgH-q_ZZ_pvzl6g",
@@ -45,7 +48,8 @@ var firebaseConfig = {
     TablaActorComponent,
     PeliculaModificarComponent,
     PeliculaEliminarComponent,
-    MenuComponent
+    MenuComponent,
+    TablaPaisesComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,8 @@ var firebaseConfig = {
     AppRoutingModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    VisualesModule
+    VisualesModule,
+    HttpClientModule
   ],
   providers: [AngularFireDatabase],
   bootstrap: [AppComponent]

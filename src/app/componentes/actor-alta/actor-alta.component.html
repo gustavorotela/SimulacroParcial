@@ -33,7 +33,28 @@
   </head>
   <body class="bg-light">
     <div class="container">
+      <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Paises</span>
+          </h4>
+          <p-table [value]="listadoPaises" [scrollable]="true" scrollHeight="500px">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Pais</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-pais>
+                <tr>
+                    <td><h6 class="my-0"><label for="{{pais.name}}"><input (change)="checkPais(pais.name)" type="radio" id="pais_{{pais.name}}" [value]="pais.name" name="paises">
+                      {{pais.name}}</label><br> </h6></td>
+                    <td>
+                </tr>
+            </ng-template>
+        </p-table>
+            
 
+        </div>
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Actor</h4>
       <form class="needs-validation" novalidate>
@@ -64,9 +85,10 @@
             </div>
         </div>
 
-        <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="guardarActor()">Cargar película</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="guardarActor()">Cargar actor</button>
       </form>
     </div>
+  </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

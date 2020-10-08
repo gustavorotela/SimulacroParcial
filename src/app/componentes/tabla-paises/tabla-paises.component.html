@@ -1,0 +1,21 @@
+<app-menu></app-menu>
+<div class="card">
+    <p-table [value]="listadoPaises" [scrollable]="true" scrollHeight="500px">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nombre</th>
+                <th>Región</th>
+                <th>Bandera</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pais>
+            <tr (click)="mostrarDetalle(pelicula)" role="button">
+                <td>{{pais.name}}</td>
+                <td>{{pais.region}}</td>
+                <td>
+                <img [src]="pais.flag" alt="" style="width: 50px; height: 50px">
+            </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

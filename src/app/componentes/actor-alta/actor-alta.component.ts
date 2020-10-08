@@ -11,6 +11,7 @@ import { MiHttpService } from '../../servicios/mi-http.service';
 export class ActorAltaComponent implements OnInit {
 
   nuevoActor:Actor;
+  listadoPaises = [];
   id:number;
 
   constructor(private miHttp:MiHttpService) { 
@@ -24,6 +25,12 @@ export class ActorAltaComponent implements OnInit {
     window.location.reload();
   }
 
+  checkPais(pais)
+  {
+    this.nuevoActor.nacionalidad = pais;
+    console.log(pais);
+  }
+
   ngOnInit(): void {
     this.miHttp.ultimoIdActor().subscribe( data => {
       if(data == "")
@@ -33,6 +40,10 @@ export class ActorAltaComponent implements OnInit {
         this.id = data[0].id;
         this.id++;
       }
+    });
+    this.miHttp.obtenerPaises().subscribe((paises:any) => {
+      console.log(paises);
+      this.listadoPaises = paises;
     });
   }
 

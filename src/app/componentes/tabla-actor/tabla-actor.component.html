@@ -1,2 +1,39 @@
 <app-menu></app-menu>
-<p>tabla-actor works!</p>
+<main role="main">
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 order-md-1">
+            <div class="card">
+                <p-table [value]="listadoActores" [scrollable]="true" scrollHeight="500px">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Portada</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-actor>
+                        <tr (click)="mostrarDetalle(actor)" role="button">
+                            <td>{{actor.apellido}} {{actor.nombre}}</td>
+                            <td>
+                            <select name="select" class="form-control" [(ngModel)]="actor.sexo" disabled>
+                                <option value="1">Hombre</option> 
+                                <option value="2">Mujer</option>
+                                <option value="3">Otro</option>
+                            </select></td>
+                            <td>
+                                <img [src]="actor.pais" alt="" style="width: 50px; height: 50px">
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+                <button routerLink="/actor/alta">Agregar actor</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

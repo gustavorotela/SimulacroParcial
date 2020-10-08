@@ -8,6 +8,7 @@ import { PeliculaAltaComponent } from './componentes/pelicula-alta/pelicula-alta
 import { PeliculaListadoComponent } from './componentes/pelicula-listado/pelicula-listado.component';
 import { PeliculaModificarComponent } from './componentes/pelicula-modificar/pelicula-modificar.component';
 import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.component';
+import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
 
 const routes: Routes = [
   {path: "", component:BienvenidoComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: "actor/listado", component:ActorListadoComponent},
   {path: "peliculas/listado", component:PeliculaListadoComponent},
   {path: "peliculas/modificar/:id", component:PeliculaModificarComponent},
-  {path: "actores", component:TablaActorComponent}
+  {path: "actores", component:TablaActorComponent},
+  {path: "paises", component:TablaPaisesComponent}
 ];
 
 @NgModule({

@@ -4,6 +4,7 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import { Observable } from 'rxjs';
 import { Actor } from '../clases/actor';
 import { Pelicula } from '../clases/pelicula';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,9 @@ export class MiHttpService {
   respuestasAFL : AngularFireList<any>;
   respuestasObservable : Observable<any>;
   id:number;
+  private urlPaises = "https://restcountries.eu/rest/v2/all";
 
-  constructor(public afAuth : AngularFireAuth, public afDB : AngularFireDatabase) { }
+  constructor(public afAuth : AngularFireAuth, public afDB : AngularFireDatabase, private http:HttpClient) { }
 
   traerPeliculas()
   {
@@ -85,5 +87,9 @@ export class MiHttpService {
   {
     this.respuestasAFL = this.afDB.list("/Actores");
     this.respuestasAFL.remove(id)
-  }  
+  } 
+
+  public obtenerPaises() {
+    return this.http.get(this.urlPaises);
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MiHttpService } from 'src/app/servicios/mi-http.service';
 
 @Component({
   selector: 'app-tabla-actor',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TablaActorComponent implements OnInit {
 
-  constructor() { }
+  listadoActores = [];
+
+  constructor(private miHttp:MiHttpService) { }
+
+  mostrarDetalle(actor)
+  {
+    
+  }
 
   ngOnInit(): void {
+    this.miHttp.traerActores().subscribe( actores => {
+      this.listadoActores = actores;
+    })
   }
 
 }
