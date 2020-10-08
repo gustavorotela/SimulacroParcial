@@ -20,6 +20,7 @@ import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.compo
 import { VisualesModule } from './modulos/visuales/visuales.module';
 import { PeliculaModificarComponent } from './componentes/pelicula-modificar/pelicula-modificar.component';
 import { PeliculaEliminarComponent } from './componentes/pelicula-eliminar/pelicula-eliminar.component';
+import { MenuComponent } from './componentes/menu/menu.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBwwDZtpRqLVuxTzuLnsgH-q_ZZ_pvzl6g",
@@ -43,7 +44,8 @@ var firebaseConfig = {
     TablaPeliculaComponent,
     TablaActorComponent,
     PeliculaModificarComponent,
-    PeliculaEliminarComponent
+    PeliculaEliminarComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

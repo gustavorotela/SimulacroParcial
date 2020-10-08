@@ -12,6 +12,7 @@ export class BusquedaComponent implements OnInit {
 
   listadoPeliculas = [];
   pelicula:Pelicula;
+  ocultar:boolean = true;
   
   constructor(private miHttp:MiHttpService,private router:Router) { 
     this.pelicula = new Pelicula();
@@ -20,6 +21,7 @@ export class BusquedaComponent implements OnInit {
   peliculaSeleccionada(pelicula)
   {
     this.pelicula = pelicula;
+    this.ocultar = false;
   }
 
   eliminar(pelicula)

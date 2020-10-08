@@ -49,12 +49,24 @@ export class PeliculaModificarComponent implements OnInit {
       console.log(id);
       this.miHttp.traerUnaPelicula(id.toString()).subscribe( pelicula => {
         console.log(pelicula);
-        this.pelicula.fechaEstreno = pelicula[0];
-        this.pelicula.id = pelicula[1];
-        this.pelicula.nombre = pelicula[2];
-        this.pelicula.publico = pelicula[3];
-        this.pelicula.tipo = pelicula[4]
-        this.pelicula.actores = pelicula[5];
+        if(pelicula[0] === Date)
+        {
+          this.pelicula.actores = null;
+          this.pelicula.fechaEstreno = pelicula[0];
+          this.pelicula.id = pelicula[1];
+          this.pelicula.nombre = pelicula[2];
+          this.pelicula.publico = pelicula[3];
+          this.pelicula.tipo = pelicula[4];
+        }
+        else
+        {
+          this.pelicula.actores = pelicula[0];
+          this.pelicula.fechaEstreno = pelicula[1];
+          this.pelicula.id = pelicula[2];
+          this.pelicula.nombre = pelicula[3];
+          this.pelicula.publico = pelicula[4];
+          this.pelicula.tipo = pelicula[5];
+        }
       });
      });
   }
