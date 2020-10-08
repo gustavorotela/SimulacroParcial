@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Pelicula } from 'src/app/clases/pelicula';
 import { MiHttpService } from '../../servicios/mi-http.service';
 
@@ -11,8 +12,8 @@ export class BusquedaComponent implements OnInit {
 
   listadoPeliculas = [];
   pelicula:Pelicula;
-
-  constructor(private miHttp:MiHttpService) { 
+  
+  constructor(private miHttp:MiHttpService,private router:Router) { 
     this.pelicula = new Pelicula();
   }
 
@@ -21,14 +22,17 @@ export class BusquedaComponent implements OnInit {
     this.pelicula = pelicula;
   }
 
-  modificar(pelicula)
-  {
-
-  }
-
   eliminar(pelicula)
   {
-    
+    this.miHttp.eliminarPelicula(pelicula.id.toString());
+    this.miHttp.traerPeliculas().subscribe((peliculas:any) => {
+      this.listadoPeliculas = peliculas;
+    });
+  }
+
+  modificar(id)
+  {
+    this.router.navigate(['/peliculas/modificar/'+id]);
   }
 
   ngOnInit(): void {

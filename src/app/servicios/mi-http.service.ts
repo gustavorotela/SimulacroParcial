@@ -23,6 +23,13 @@ export class MiHttpService {
     return this.respuestasObservable;
   }
 
+  traerUnaPelicula(id)
+  {
+    this.respuestasAFL = this.afDB.list("/Peliculas",ref => ref.child(id));
+    this.respuestasObservable = this.respuestasAFL.valueChanges();
+    return this.respuestasObservable;
+  }
+
   cargarPelicula(pelicula:Pelicula,id:string)
   {
     const listadoPeliculas = this.afDB.list("/Peliculas/");
@@ -34,6 +41,18 @@ export class MiHttpService {
     this.respuestasAFL = this.afDB.list("/Peliculas",ref => ref.limitToLast(1));
     this.respuestasObservable = this.respuestasAFL.valueChanges();
     return this.respuestasObservable;
+  }
+
+  modificarPelicula(id:string,pelicula)
+  {
+    this.respuestasAFL = this.afDB.list("/Pelicula");
+    this.respuestasAFL.update(id,pelicula);
+  }
+
+  eliminarPelicula(id:string)
+  {
+    this.respuestasAFL = this.afDB.list("/Peliculas");
+    this.respuestasAFL.remove(id)
   }
 
   traerActores()
@@ -55,4 +74,16 @@ export class MiHttpService {
     this.respuestasObservable = this.respuestasAFL.valueChanges();
     return this.respuestasObservable;
   }
+
+  modificarActor(id:string,actor)
+  {
+    this.respuestasAFL = this.afDB.list("/Actores");
+    this.respuestasAFL.update(id,actor);
+  }
+
+  eliminarActor(id:string)
+  {
+    this.respuestasAFL = this.afDB.list("/Actores");
+    this.respuestasAFL.remove(id)
+  }  
 }
