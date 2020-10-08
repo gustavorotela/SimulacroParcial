@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Actor } from 'src/app/clases/actor';
 import { MiHttpService } from 'src/app/servicios/mi-http.service';
 
 @Component({
@@ -9,12 +10,15 @@ import { MiHttpService } from 'src/app/servicios/mi-http.service';
 export class TablaActorComponent implements OnInit {
 
   listadoActores = [];
+  actorSeleccionado:Actor;
 
-  constructor(private miHttp:MiHttpService) { }
+  constructor(private miHttp:MiHttpService) { 
+  }
 
   mostrarDetalle(actor)
   {
-    
+    this.actorSeleccionado = actor;
+    console.log(this.actorSeleccionado);
   }
 
   ngOnInit(): void {

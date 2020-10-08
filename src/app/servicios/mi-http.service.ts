@@ -32,6 +32,13 @@ export class MiHttpService {
     return this.respuestasObservable;
   }
 
+  traerUnActor(id)
+  {
+    this.respuestasAFL = this.afDB.list("/Actores",ref => ref.child(id));
+    this.respuestasObservable = this.respuestasAFL.valueChanges();
+    return this.respuestasObservable;
+  }
+
   cargarPelicula(pelicula:Pelicula,id:string)
   {
     const listadoPeliculas = this.afDB.list("/Peliculas/");

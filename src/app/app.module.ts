@@ -24,6 +24,9 @@ import { MenuComponent } from './componentes/menu/menu.component';
 import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { ActorDetalleComponent } from './componentes/actor-detalle/actor-detalle.component';
+import { ActorModificarComponent } from './componentes/actor-modificar/actor-modificar.component';
+import { ConfirmarEliminacionComponent } from './componentes/confirmar-eliminacion/confirmar-eliminacion.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBwwDZtpRqLVuxTzuLnsgH-q_ZZ_pvzl6g",
@@ -49,7 +52,10 @@ var firebaseConfig = {
     PeliculaModificarComponent,
     PeliculaEliminarComponent,
     MenuComponent,
-    TablaPaisesComponent
+    TablaPaisesComponent,
+    ActorDetalleComponent,
+    ActorModificarComponent,
+    ConfirmarEliminacionComponent
   ],
   imports: [
     BrowserModule,

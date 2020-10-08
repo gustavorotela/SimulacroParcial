@@ -1,0 +1,32 @@
+<app-menu></app-menu>
+<h4 class="mb-3">Actor</h4>
+<form class="needs-validation" novalidate>
+<div class="mb-3">
+    <label for="firstName">Nombre</label>
+    <input [(ngModel)]="actor.nombre" name="firstName" type="text" class="form-control">
+</div>
+
+<div class="mb-3">
+    <label for="firstName">Apellido</label>
+    <input [(ngModel)]="actor.apellido" name="LasttName" type="text" class="form-control">
+</div>
+
+<div class="mb-3">
+    <label for="email">Fecha de nacimiento</label>
+    <input [(ngModel)]="actor.fechaNacimiento" name="fecha" type="date" class="form-control">
+</div>
+
+<div class="mb-3">
+    <label for="username">Genero</label>
+    <div class="input-group">
+        <select name="select" class="form-control" [(ngModel)]="actor.sexo">
+            <option disabled selected value> -- Seleccione una opción -- </option>
+            <option value="1">Masculino</option> 
+            <option value="2">Femenino</option>
+            <option value="3">Otros</option>
+        </select>
+    </div>
+</div>
+
+<button class="btn btn-primary btn-lg btn-block" type="submit" (click)="guardarActor()">Cargar actor</button>
+</form>

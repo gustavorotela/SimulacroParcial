@@ -1,0 +1,40 @@
+<div *ngIf="actor != []">
+    <ul class="list-group mb-3">
+      <div>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Nombre: {{actor.nombre}}</h6>
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Apellido: {{actor.apellido}}</h6>
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Fecha de nacimiento: {{actor.fechaNacimiento}}</h6>
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Sexo: {{actor.sexo}}</h6>
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">nacionalidad: {{actor.nacionalidad}}</h6>
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <button class="btn btn-primary my-2" (click)="modificar(actor.id)">Modificar</button>
+            <button class="btn btn-primary my-2" (click)="eliminar(actor)">Eliminar</button>
+            
+          </div>
+          
+        </li>
+        <app-confirmar-eliminacion [confirmar]="Confirmar" (confirmacion)="eventoConfirmacion($event)"></app-confirmar-eliminacion>
+      </div>
+    </ul>
+</div>
